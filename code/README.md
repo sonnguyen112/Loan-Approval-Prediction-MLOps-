@@ -1,5 +1,3 @@
-# mlops-crash-course-code
-
 ## Requirements
 
 ```bash
