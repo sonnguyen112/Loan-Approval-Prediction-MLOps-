@@ -1,0 +1,234 @@
+[2024-09-23T09:18:54.192+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: materlize_offline_to_online.materialize_task manual__2024-09-23T09:18:52.744174+00:00 [queued]>
+[2024-09-23T09:18:54.309+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: materlize_offline_to_online.materialize_task manual__2024-09-23T09:18:52.744174+00:00 [queued]>
+[2024-09-23T09:18:54.309+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-23T09:18:54.309+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2024-09-23T09:18:54.309+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-23T09:18:54.329+0000] {taskinstance.py:1389} INFO - Executing <Task(DockerOperator): materialize_task> on 2024-09-23 09:18:52.744174+00:00
+[2024-09-23T09:18:54.337+0000] {standard_task_runner.py:52} INFO - Started process 1253 to run task
+[2024-09-23T09:18:54.339+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'materlize_offline_to_online', 'materialize_task', 'manual__2024-09-23T09:18:52.744174+00:00', '--job-id', '118', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline/materialize_offline_to_online.py', '--cfg-path', '/tmp/tmptvmj3qfv', '--error-file', '/tmp/tmp6739cu6a']
+[2024-09-23T09:18:54.340+0000] {standard_task_runner.py:80} INFO - Job 118: Subtask materialize_task
+[2024-09-23T09:18:54.391+0000] {task_command.py:371} INFO - Running <TaskInstance: materlize_offline_to_online.materialize_task manual__2024-09-23T09:18:52.744174+00:00 [running]> on host 4f3194c3b428
+[2024-09-23T09:18:54.456+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=mlopsvn
+AIRFLOW_CTX_DAG_ID=materlize_offline_to_online
+AIRFLOW_CTX_TASK_ID=materialize_task
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-23T09:18:52.744174+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-09-23T09:18:52.744174+00:00
+[2024-09-23T09:18:54.470+0000] {docker.py:262} INFO - Starting docker container from image mlopsvn/mlops_crash_course/data_pipeline:latest
+[2024-09-23T09:18:54.472+0000] {docker.py:273} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2024-09-23T09:18:57.809+0000] {docker.py:324} INFO - /opt/venv/lib/python3.9/site-packages/feast/repo_config.py:207: RuntimeWarning: `entity_key_serialization_version` is either not specified in the feature_store.yaml, or is specified to a value <= 1.This serialization version may cause errors when trying to write fields with the `Long` data type into the online store. Specifying `entity_key_serialization_version` to 2 is recommended for new projects. 
+  warnings.warn(
+[2024-09-23T09:18:57.864+0000] {docker.py:324} INFO - /opt/venv/lib/python3.9/site-packages/feast/stream_feature_view.py:93: RuntimeWarning: Stream feature views are experimental features in alpha development. Some functionality may still be unstable so functionality can change in the future.
+  warnings.warn(
+[2024-09-23T09:18:57.872+0000] {docker.py:324} INFO - Feast is an open source project that collects anonymized error reporting and usage statistics. To opt out or learn more see https://docs.feast.dev/reference/usage
+Materializing [1m[32m2[0m feature views to [1m[32m2024-09-23 00:00:00+00:00[0m into the [1m[32mredis[0m online store.
+
+[1m[32mdriver_stats[0m from [1m[32m2024-09-18 00:00:00+00:00[0m to [1m[32m2024-09-23 00:00:00+00:00[0m:
+[2024-09-23T09:18:57.875+0000] {docker.py:324} INFO - Traceback (most recent call last):
+  File "/opt/venv/bin/feast", line 8, in <module>
+    sys.exit(cli())
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/feast/cli.py", line 606, in materialize_incremental_command
+    store.materialize_incremental(
+  File "/opt/venv/lib/python3.9/site-packages/feast/usage.py", line 283, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/feast/feature_store.py", line 1323, in materialize_incremental
+    provider.materialize_single_feature_view(
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/passthrough_provider.py", line 252, in materialize_single_feature_view
+    raise e
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/materialization/local_engine.py", line 156, in _materialize_one
+    table = offline_job.to_arrow()
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/offline_store.py", line 116, in to_arrow
+    return self._to_arrow_internal()
+  File "/opt/venv/lib/python3.9/site-packages/feast/usage.py", line 294, in wrapper
+    raise exc.with_traceback(traceback)
+  File "/opt/venv/lib/python3.9/site-packages/feast/usage.py", line 283, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/file.py", line 88, in _to_arrow_internal
+    df = self.evaluation_function().compute()
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/file.py", line 310, in evaluate_offline_job
+    source_df = _read_datasource(data_source)
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/file.py", line 499, in _read_datasource
+    return dd.read_parquet(
+  File "/opt/venv/lib/python3.9/site-packages/dask/dataframe/io/parquet/core.py", line 330, in read_parquet
+    read_metadata_result = engine.read_metadata(
+  File "/opt/venv/lib/python3.9/site-packages/dask/dataframe/io/parquet/arrow.py", line 371, in read_metadata
+    dataset_info = cls._collect_dataset_info(
+  File "/opt/venv/lib/python3.9/site-packages/dask/dataframe/io/parquet/arrow.py", line 909, in _collect_dataset_info
+    ds = pa_ds.dataset(
+  File "/opt/venv/lib/python3.9/site-packages/pyarrow/dataset.py", line 697, in dataset
+    return _filesystem_dataset(source, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/pyarrow/dataset.py", line 437, in _filesystem_dataset
+    fs, paths_or_selector = _ensure_multiple_sources(source, filesystem)
+  File "/opt/venv/lib/python3.9/site-packages/pyarrow/dataset.py", line 356, in _ensure_multiple_sources
+    raise FileNotFoundError(info.path)
+FileNotFoundError: /home/sonnguyen112/Data/MLOps/mlops-crash-course-code/data_pipeline/data_sources/driver_stats.parquet
+[2024-09-23T09:18:58.530+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 268, in _raise_for_status
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/models.py", line 1022, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http+docker://localhost/v1.47/containers/create
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 269, in _run_image
+    return self._run_image_with_mounts(self.mounts + [tmp_mount], add_tmp_variable=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 314, in _run_image_with_mounts
+    tty=self.tty,
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 431, in create_container
+    return self.create_container_from_config(config, name, platform)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 448, in create_container_from_config
+    return self._result(res, True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 274, in _result
+    self._raise_for_status(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 270, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 400 Client Error for http+docker://localhost/v1.47/containers/create: Bad Request ("invalid mount config for type "bind": bind source path does not exist: /tmp/airflowtmp25ih5gjz")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 400, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 278, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 329, in _run_image_with_mounts
+    raise AirflowException(f'Docker container failed: {repr(result)} lines {joined_log_lines}')
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 1} lines /opt/venv/lib/python3.9/site-packages/feast/repo_config.py:207: RuntimeWarning: `entity_key_serialization_version` is either not specified in the feature_store.yaml, or is specified to a value <= 1.This serialization version may cause errors when trying to write fields with the `Long` data type into the online store. Specifying `entity_key_serialization_version` to 2 is recommended for new projects. 
+  warnings.warn(
+/opt/venv/lib/python3.9/site-packages/feast/stream_feature_view.py:93: RuntimeWarning: Stream feature views are experimental features in alpha development. Some functionality may still be unstable so functionality can change in the future.
+  warnings.warn(
+Feast is an open source project that collects anonymized error reporting and usage statistics. To opt out or learn more see https://docs.feast.dev/reference/usage
+Materializing [1m[32m2[0m feature views to [1m[32m2024-09-23 00:00:00+00:00[0m into the [1m[32mredis[0m online store.
+
+[1m[32mdriver_stats[0m from [1m[32m2024-09-18 00:00:00+00:00[0m to [1m[32m2024-09-23 00:00:00+00:00[0m:
+Traceback (most recent call last):
+  File "/opt/venv/bin/feast", line 8, in <module>
+    sys.exit(cli())
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/feast/cli.py", line 606, in materialize_incremental_command
+    store.materialize_incremental(
+  File "/opt/venv/lib/python3.9/site-packages/feast/usage.py", line 283, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/feast/feature_store.py", line 1323, in materialize_incremental
+    provider.materialize_single_feature_view(
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/passthrough_provider.py", line 252, in materialize_single_feature_view
+    raise e
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/materialization/local_engine.py", line 156, in _materialize_one
+    table = offline_job.to_arrow()
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/offline_store.py", line 116, in to_arrow
+    return self._to_arrow_internal()
+  File "/opt/venv/lib/python3.9/site-packages/feast/usage.py", line 294, in wrapper
+    raise exc.with_traceback(traceback)
+  File "/opt/venv/lib/python3.9/site-packages/feast/usage.py", line 283, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/file.py", line 88, in _to_arrow_internal
+    df = self.evaluation_function().compute()
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/file.py", line 310, in evaluate_offline_job
+    source_df = _read_datasource(data_source)
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/file.py", line 499, in _read_datasource
+    return dd.read_parquet(
+  File "/opt/venv/lib/python3.9/site-packages/dask/dataframe/io/parquet/core.py", line 330, in read_parquet
+    read_metadata_result = engine.read_metadata(
+  File "/opt/venv/lib/python3.9/site-packages/dask/dataframe/io/parquet/arrow.py", line 371, in read_metadata
+    dataset_info = cls._collect_dataset_info(
+  File "/opt/venv/lib/python3.9/site-packages/dask/dataframe/io/parquet/arrow.py", line 909, in _collect_dataset_info
+    ds = pa_ds.dataset(
+  File "/opt/venv/lib/python3.9/site-packages/pyarrow/dataset.py", line 697, in dataset
+    return _filesystem_dataset(source, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/pyarrow/dataset.py", line 437, in _filesystem_dataset
+    fs, paths_or_selector = _ensure_multiple_sources(source, filesystem)
+  File "/opt/venv/lib/python3.9/site-packages/pyarrow/dataset.py", line 356, in _ensure_multiple_sources
+    raise FileNotFoundError(info.path)
+FileNotFoundError: /home/sonnguyen112/Data/MLOps/mlops-crash-course-code/data_pipeline/data_sources/driver_stats.parquet
+[2024-09-23T09:18:58.539+0000] {taskinstance.py:1412} INFO - Marking task as FAILED. dag_id=materlize_offline_to_online, task_id=materialize_task, execution_date=20240923T091852, start_date=20240923T091854, end_date=20240923T091858
+[2024-09-23T09:18:58.556+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 118 for task materialize_task (Docker container failed: {'StatusCode': 1} lines /opt/venv/lib/python3.9/site-packages/feast/repo_config.py:207: RuntimeWarning: `entity_key_serialization_version` is either not specified in the feature_store.yaml, or is specified to a value <= 1.This serialization version may cause errors when trying to write fields with the `Long` data type into the online store. Specifying `entity_key_serialization_version` to 2 is recommended for new projects. 
+  warnings.warn(
+/opt/venv/lib/python3.9/site-packages/feast/stream_feature_view.py:93: RuntimeWarning: Stream feature views are experimental features in alpha development. Some functionality may still be unstable so functionality can change in the future.
+  warnings.warn(
+Feast is an open source project that collects anonymized error reporting and usage statistics. To opt out or learn more see https://docs.feast.dev/reference/usage
+Materializing [1m[32m2[0m feature views to [1m[32m2024-09-23 00:00:00+00:00[0m into the [1m[32mredis[0m online store.
+
+[1m[32mdriver_stats[0m from [1m[32m2024-09-18 00:00:00+00:00[0m to [1m[32m2024-09-23 00:00:00+00:00[0m:
+Traceback (most recent call last):
+  File "/opt/venv/bin/feast", line 8, in <module>
+    sys.exit(cli())
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/venv/lib/python3.9/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/feast/cli.py", line 606, in materialize_incremental_command
+    store.materialize_incremental(
+  File "/opt/venv/lib/python3.9/site-packages/feast/usage.py", line 283, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/feast/feature_store.py", line 1323, in materialize_incremental
+    provider.materialize_single_feature_view(
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/passthrough_provider.py", line 252, in materialize_single_feature_view
+    raise e
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/materialization/local_engine.py", line 156, in _materialize_one
+    table = offline_job.to_arrow()
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/offline_store.py", line 116, in to_arrow
+    return self._to_arrow_internal()
+  File "/opt/venv/lib/python3.9/site-packages/feast/usage.py", line 294, in wrapper
+    raise exc.with_traceback(traceback)
+  File "/opt/venv/lib/python3.9/site-packages/feast/usage.py", line 283, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/file.py", line 88, in _to_arrow_internal
+    df = self.evaluation_function().compute()
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/file.py", line 310, in evaluate_offline_job
+    source_df = _read_datasource(data_source)
+  File "/opt/venv/lib/python3.9/site-packages/feast/infra/offline_stores/file.py", line 499, in _read_datasource
+    return dd.read_parquet(
+  File "/opt/venv/lib/python3.9/site-packages/dask/dataframe/io/parquet/core.py", line 330, in read_parquet
+    read_metadata_result = engine.read_metadata(
+  File "/opt/venv/lib/python3.9/site-packages/dask/dataframe/io/parquet/arrow.py", line 371, in read_metadata
+    dataset_info = cls._collect_dataset_info(
+  File "/opt/venv/lib/python3.9/site-packages/dask/dataframe/io/parquet/arrow.py", line 909, in _collect_dataset_info
+    ds = pa_ds.dataset(
+  File "/opt/venv/lib/python3.9/site-packages/pyarrow/dataset.py", line 697, in dataset
+    return _filesystem_dataset(source, **kwargs)
+  File "/opt/venv/lib/python3.9/site-packages/pyarrow/dataset.py", line 437, in _filesystem_dataset
+    fs, paths_or_selector = _ensure_multiple_sources(source, filesystem)
+  File "/opt/venv/lib/python3.9/site-packages/pyarrow/dataset.py", line 356, in _ensure_multiple_sources
+    raise FileNotFoundError(info.path)
+FileNotFoundError: /home/sonnguyen112/Data/MLOps/mlops-crash-course-code/data_pipeline/data_sources/driver_stats.parquet; 1253)
+[2024-09-23T09:18:58.565+0000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-09-23T09:18:58.593+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,177 @@
+[2024-09-23T09:49:36.503+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: stream_to_stores.stream_to_offline_task manual__2024-09-23T09:49:35.074506+00:00 [queued]>
+[2024-09-23T09:49:36.661+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: stream_to_stores.stream_to_offline_task manual__2024-09-23T09:49:35.074506+00:00 [queued]>
+[2024-09-23T09:49:36.662+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-23T09:49:36.662+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2024-09-23T09:49:36.662+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-23T09:49:36.682+0000] {taskinstance.py:1389} INFO - Executing <Task(DockerOperator): stream_to_offline_task> on 2024-09-23 09:49:35.074506+00:00
+[2024-09-23T09:49:36.689+0000] {standard_task_runner.py:52} INFO - Started process 2256 to run task
+[2024-09-23T09:49:36.700+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stream_to_stores', 'stream_to_offline_task', 'manual__2024-09-23T09:49:35.074506+00:00', '--job-id', '126', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline/stream_to_stores.py', '--cfg-path', '/tmp/tmpcc1pt22l', '--error-file', '/tmp/tmpzf8larlh']
+[2024-09-23T09:49:36.702+0000] {standard_task_runner.py:80} INFO - Job 126: Subtask stream_to_offline_task
+[2024-09-23T09:49:36.813+0000] {task_command.py:371} INFO - Running <TaskInstance: stream_to_stores.stream_to_offline_task manual__2024-09-23T09:49:35.074506+00:00 [running]> on host dc34e5e06cda
+[2024-09-23T09:49:36.983+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=mlopsvn
+AIRFLOW_CTX_DAG_ID=stream_to_stores
+AIRFLOW_CTX_TASK_ID=stream_to_offline_task
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-23T09:49:35.074506+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-09-23T09:49:35.074506+00:00
+[2024-09-23T09:49:37.018+0000] {docker.py:262} INFO - Starting docker container from image mlopsvn/mlops_crash_course/data_pipeline:latest
+[2024-09-23T09:49:37.022+0000] {docker.py:273} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2024-09-23T09:49:42.987+0000] {docker.py:324} INFO - Exception in thread "main"
+[2024-09-23T09:49:42.988+0000] {docker.py:324} INFO - java.lang.ExceptionInInitializerError
+	at org.apache.spark.unsafe.array.ByteArrayMethods.<clinit>(ByteArrayMethods.java:54)
+	at org.apache.spark.internal.config.package$.<init>(package.scala:1006)
+	at org.apache.spark.internal.config.package$.<clinit>(package.scala)
+	at org.apache.spark.deploy.SparkSubmitArguments.$anonfun$loadEnvironmentArguments$3(SparkSubmitArguments.scala:157)
+	at scala.Option.orElse(Option.scala:447)
+	at org.apache.spark.deploy.SparkSubmitArguments.loadEnvironmentArguments(SparkSubmitArguments.scala:157)
+	at org.apache.spark.deploy.SparkSubmitArguments.<init>(SparkSubmitArguments.scala:115)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2$$anon$3.<init>(SparkSubmit.scala:990)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.parseArguments(SparkSubmit.scala:990)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:85)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1007)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1016)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make private java.nio.DirectByteBuffer(long,int) accessible: module java.base does not "opens java.nio" to unnamed module @26ee6b5e
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Constructor.checkCanSetAccessible(Constructor.java:189)
+	at java.base/java.lang.reflect.Constructor.setAccessible(Constructor.java:182)
+	at org.apache.spark.unsafe.Platform.<clinit>(Platform.java:56)
+	... 13 more
+[2024-09-23T09:49:43.023+0000] {docker.py:324} INFO - Feast is an open source project that collects anonymized error reporting and usage statistics. To opt out or learn more see https://docs.feast.dev/reference/usage
+[2024-09-23T09:49:43.024+0000] {docker.py:324} INFO - Traceback (most recent call last):
+  File "/data_pipeline/src/stream_to_stores/ingest.py", line 1, in <module>
+    from processor import processor
+  File "/data_pipeline/src/stream_to_stores/processor.py", line 14, in <module>
+    spark = SparkSession.builder.master("local").appName("feast-spark").getOrCreate()
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/sql/session.py", line 186, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/context.py", line 376, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/context.py", line 133, in __init__
+    SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/context.py", line 325, in _ensure_initialized
+    SparkContext._gateway = gateway or launch_gateway(conf)
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/java_gateway.py", line 105, in launch_gateway
+    raise Exception("Java gateway process exited before sending its port number")
+Exception: Java gateway process exited before sending its port number
+[2024-09-23T09:49:43.549+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 268, in _raise_for_status
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/models.py", line 1022, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http+docker://localhost/v1.47/containers/create
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 269, in _run_image
+    return self._run_image_with_mounts(self.mounts + [tmp_mount], add_tmp_variable=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 314, in _run_image_with_mounts
+    tty=self.tty,
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 431, in create_container
+    return self.create_container_from_config(config, name, platform)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 448, in create_container_from_config
+    return self._result(res, True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 274, in _result
+    self._raise_for_status(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 270, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 400 Client Error for http+docker://localhost/v1.47/containers/create: Bad Request ("invalid mount config for type "bind": bind source path does not exist: /tmp/airflowtmp1268ax1j")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 400, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 278, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 329, in _run_image_with_mounts
+    raise AirflowException(f'Docker container failed: {repr(result)} lines {joined_log_lines}')
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 1} lines Exception in thread "main"
+java.lang.ExceptionInInitializerError
+	at org.apache.spark.unsafe.array.ByteArrayMethods.<clinit>(ByteArrayMethods.java:54)
+	at org.apache.spark.internal.config.package$.<init>(package.scala:1006)
+	at org.apache.spark.internal.config.package$.<clinit>(package.scala)
+	at org.apache.spark.deploy.SparkSubmitArguments.$anonfun$loadEnvironmentArguments$3(SparkSubmitArguments.scala:157)
+	at scala.Option.orElse(Option.scala:447)
+	at org.apache.spark.deploy.SparkSubmitArguments.loadEnvironmentArguments(SparkSubmitArguments.scala:157)
+	at org.apache.spark.deploy.SparkSubmitArguments.<init>(SparkSubmitArguments.scala:115)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2$$anon$3.<init>(SparkSubmit.scala:990)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.parseArguments(SparkSubmit.scala:990)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:85)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1007)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1016)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make private java.nio.DirectByteBuffer(long,int) accessible: module java.base does not "opens java.nio" to unnamed module @26ee6b5e
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Constructor.checkCanSetAccessible(Constructor.java:189)
+	at java.base/java.lang.reflect.Constructor.setAccessible(Constructor.java:182)
+	at org.apache.spark.unsafe.Platform.<clinit>(Platform.java:56)
+	... 13 more
+Feast is an open source project that collects anonymized error reporting and usage statistics. To opt out or learn more see https://docs.feast.dev/reference/usage
+Traceback (most recent call last):
+  File "/data_pipeline/src/stream_to_stores/ingest.py", line 1, in <module>
+    from processor import processor
+  File "/data_pipeline/src/stream_to_stores/processor.py", line 14, in <module>
+    spark = SparkSession.builder.master("local").appName("feast-spark").getOrCreate()
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/sql/session.py", line 186, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/context.py", line 376, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/context.py", line 133, in __init__
+    SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/context.py", line 325, in _ensure_initialized
+    SparkContext._gateway = gateway or launch_gateway(conf)
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/java_gateway.py", line 105, in launch_gateway
+    raise Exception("Java gateway process exited before sending its port number")
+Exception: Java gateway process exited before sending its port number
+[2024-09-23T09:49:43.554+0000] {taskinstance.py:1412} INFO - Marking task as FAILED. dag_id=stream_to_stores, task_id=stream_to_offline_task, execution_date=20240923T094935, start_date=20240923T094936, end_date=20240923T094943
+[2024-09-23T09:49:43.571+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 126 for task stream_to_offline_task (Docker container failed: {'StatusCode': 1} lines Exception in thread "main"
+java.lang.ExceptionInInitializerError
+	at org.apache.spark.unsafe.array.ByteArrayMethods.<clinit>(ByteArrayMethods.java:54)
+	at org.apache.spark.internal.config.package$.<init>(package.scala:1006)
+	at org.apache.spark.internal.config.package$.<clinit>(package.scala)
+	at org.apache.spark.deploy.SparkSubmitArguments.$anonfun$loadEnvironmentArguments$3(SparkSubmitArguments.scala:157)
+	at scala.Option.orElse(Option.scala:447)
+	at org.apache.spark.deploy.SparkSubmitArguments.loadEnvironmentArguments(SparkSubmitArguments.scala:157)
+	at org.apache.spark.deploy.SparkSubmitArguments.<init>(SparkSubmitArguments.scala:115)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2$$anon$3.<init>(SparkSubmit.scala:990)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.parseArguments(SparkSubmit.scala:990)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:85)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1007)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1016)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make private java.nio.DirectByteBuffer(long,int) accessible: module java.base does not "opens java.nio" to unnamed module @26ee6b5e
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Constructor.checkCanSetAccessible(Constructor.java:189)
+	at java.base/java.lang.reflect.Constructor.setAccessible(Constructor.java:182)
+	at org.apache.spark.unsafe.Platform.<clinit>(Platform.java:56)
+	... 13 more
+Feast is an open source project that collects anonymized error reporting and usage statistics. To opt out or learn more see https://docs.feast.dev/reference/usage
+Traceback (most recent call last):
+  File "/data_pipeline/src/stream_to_stores/ingest.py", line 1, in <module>
+    from processor import processor
+  File "/data_pipeline/src/stream_to_stores/processor.py", line 14, in <module>
+    spark = SparkSession.builder.master("local").appName("feast-spark").getOrCreate()
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/sql/session.py", line 186, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/context.py", line 376, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/context.py", line 133, in __init__
+    SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/context.py", line 325, in _ensure_initialized
+    SparkContext._gateway = gateway or launch_gateway(conf)
+  File "/opt/venv/lib/python3.9/site-packages/pyspark/java_gateway.py", line 105, in launch_gateway
+    raise Exception("Java gateway process exited before sending its port number")
+Exception: Java gateway process exited before sending its port number; 2256)
+[2024-09-23T09:49:43.610+0000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-09-23T09:49:43.647+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

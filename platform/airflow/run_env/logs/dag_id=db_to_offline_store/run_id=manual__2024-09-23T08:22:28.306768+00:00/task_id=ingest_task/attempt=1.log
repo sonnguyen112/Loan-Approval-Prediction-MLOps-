@@ -1,0 +1,34 @@
+[2024-09-23T08:22:29.146+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: db_to_offline_store.ingest_task manual__2024-09-23T08:22:28.306768+00:00 [queued]>
+[2024-09-23T08:22:29.159+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: db_to_offline_store.ingest_task manual__2024-09-23T08:22:28.306768+00:00 [queued]>
+[2024-09-23T08:22:29.160+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-23T08:22:29.160+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2024-09-23T08:22:29.160+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-23T08:22:29.174+0000] {taskinstance.py:1389} INFO - Executing <Task(BashOperator): ingest_task> on 2024-09-23 08:22:28.306768+00:00
+[2024-09-23T08:22:29.178+0000] {standard_task_runner.py:52} INFO - Started process 4519 to run task
+[2024-09-23T08:22:29.180+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'db_to_offline_store', 'ingest_task', 'manual__2024-09-23T08:22:28.306768+00:00', '--job-id', '88', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline/db_to_offline_store.py', '--cfg-path', '/tmp/tmpd798q0mw', '--error-file', '/tmp/tmp3zbtco20']
+[2024-09-23T08:22:29.181+0000] {standard_task_runner.py:80} INFO - Job 88: Subtask ingest_task
+[2024-09-23T08:22:29.232+0000] {task_command.py:371} INFO - Running <TaskInstance: db_to_offline_store.ingest_task manual__2024-09-23T08:22:28.306768+00:00 [running]> on host f8c7c62a86fe
+[2024-09-23T08:22:29.296+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=mlopsvn
+AIRFLOW_CTX_DAG_ID=db_to_offline_store
+AIRFLOW_CTX_TASK_ID=ingest_task
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-23T08:22:28.306768+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-09-23T08:22:28.306768+00:00
+[2024-09-23T08:22:29.296+0000] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2024-09-23T08:22:29.297+0000] {subprocess.py:74} INFO - Running command: ['/bin/bash', '-c', 'python /home/sonnguyen112/Data/MLOps/mlops-crash-course-code/data_pipeline/src/db_to_offline_store/ingest.py']
+[2024-09-23T08:22:29.307+0000] {subprocess.py:85} INFO - Output:
+[2024-09-23T08:22:29.400+0000] {subprocess.py:92} INFO - python: can't open file '/home/sonnguyen112/Data/MLOps/mlops-crash-course-code/data_pipeline/src/db_to_offline_store/ingest.py': [Errno 2] No such file or directory
+[2024-09-23T08:22:29.403+0000] {subprocess.py:96} INFO - Command exited with return code 2
+[2024-09-23T08:22:29.416+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2024-09-23T08:22:29.419+0000] {taskinstance.py:1412} INFO - Marking task as FAILED. dag_id=db_to_offline_store, task_id=ingest_task, execution_date=20240923T082228, start_date=20240923T082229, end_date=20240923T082229
+[2024-09-23T08:22:29.429+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 88 for task ingest_task (Bash command failed. The command returned a non-zero exit code 2.; 4519)
+[2024-09-23T08:22:29.472+0000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-09-23T08:22:29.517+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

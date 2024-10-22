@@ -1,0 +1,25 @@
+[2024-10-16T07:06:12.070+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: db_to_offline_store.explore_and_validate_task manual__2024-10-16T07:06:07.627714+00:00 [queued]>
+[2024-10-16T07:06:12.201+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: db_to_offline_store.explore_and_validate_task manual__2024-10-16T07:06:07.627714+00:00 [queued]>
+[2024-10-16T07:06:12.201+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2024-10-16T07:06:12.201+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2024-10-16T07:06:12.202+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2024-10-16T07:06:12.216+0000] {taskinstance.py:1389} INFO - Executing <Task(DockerOperator): explore_and_validate_task> on 2024-10-16 07:06:07.627714+00:00
+[2024-10-16T07:06:12.221+0000] {standard_task_runner.py:52} INFO - Started process 383 to run task
+[2024-10-16T07:06:12.223+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'db_to_offline_store', 'explore_and_validate_task', 'manual__2024-10-16T07:06:07.627714+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline/db_to_offline_store.py', '--cfg-path', '/tmp/tmp_a3je1oq', '--error-file', '/tmp/tmp9vv696kf']
+[2024-10-16T07:06:12.224+0000] {standard_task_runner.py:80} INFO - Job 7: Subtask explore_and_validate_task
+[2024-10-16T07:06:12.286+0000] {task_command.py:371} INFO - Running <TaskInstance: db_to_offline_store.explore_and_validate_task manual__2024-10-16T07:06:07.627714+00:00 [running]> on host bc2dbf4723f9
+[2024-10-16T07:06:12.358+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=mlopsvn
+AIRFLOW_CTX_DAG_ID=db_to_offline_store
+AIRFLOW_CTX_TASK_ID=explore_and_validate_task
+AIRFLOW_CTX_EXECUTION_DATE=2024-10-16T07:06:07.627714+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-10-16T07:06:07.627714+00:00
+[2024-10-16T07:06:12.375+0000] {docker.py:262} INFO - Starting docker container from image mlopsvn/mlops_crash_course/data_pipeline:latest
+[2024-10-16T07:06:12.379+0000] {docker.py:273} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2024-10-16T07:06:12.616+0000] {docker.py:324} INFO - 2024-10-16 07:06:12,615 - utils.logger - INFO - Exploring and validating...
+[2024-10-16T07:06:12.804+0000] {taskinstance.py:1412} INFO - Marking task as SUCCESS. dag_id=db_to_offline_store, task_id=explore_and_validate_task, execution_date=20241016T070607, start_date=20241016T070612, end_date=20241016T070612
+[2024-10-16T07:06:12.836+0000] {local_task_job.py:156} INFO - Task exited with return code 0
+[2024-10-16T07:06:12.881+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

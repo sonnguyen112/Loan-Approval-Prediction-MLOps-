@@ -1,0 +1,63 @@
+[2024-09-23T10:09:02.487+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: materlize_offline_to_online.materialize_task manual__2024-09-23T10:09:01.808737+00:00 [queued]>
+[2024-09-23T10:09:02.699+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: materlize_offline_to_online.materialize_task manual__2024-09-23T10:09:01.808737+00:00 [queued]>
+[2024-09-23T10:09:02.699+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-23T10:09:02.699+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2024-09-23T10:09:02.699+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-23T10:09:02.717+0000] {taskinstance.py:1389} INFO - Executing <Task(DockerOperator): materialize_task> on 2024-09-23 10:09:01.808737+00:00
+[2024-09-23T10:09:02.726+0000] {standard_task_runner.py:52} INFO - Started process 3860 to run task
+[2024-09-23T10:09:02.729+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'materlize_offline_to_online', 'materialize_task', 'manual__2024-09-23T10:09:01.808737+00:00', '--job-id', '132', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline/materialize_offline_to_online.py', '--cfg-path', '/tmp/tmpvtue2uuj', '--error-file', '/tmp/tmp6_a2a46v']
+[2024-09-23T10:09:02.730+0000] {standard_task_runner.py:80} INFO - Job 132: Subtask materialize_task
+[2024-09-23T10:09:02.814+0000] {task_command.py:371} INFO - Running <TaskInstance: materlize_offline_to_online.materialize_task manual__2024-09-23T10:09:01.808737+00:00 [running]> on host dc34e5e06cda
+[2024-09-23T10:09:02.917+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=mlopsvn
+AIRFLOW_CTX_DAG_ID=materlize_offline_to_online
+AIRFLOW_CTX_TASK_ID=materialize_task
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-23T10:09:01.808737+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-09-23T10:09:01.808737+00:00
+[2024-09-23T10:09:02.934+0000] {docker.py:262} INFO - Starting docker container from image mlopsvn/mlops_crash_course/data_pipeline:latest
+[2024-09-23T10:09:02.939+0000] {docker.py:273} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2024-09-23T10:09:03.165+0000] {docker.py:324} INFO - ./scripts/feast_helper.sh: /opt/venv/bin/feast: /opt/venv/bin/python: bad interpreter: No such file or directory
+[2024-09-23T10:09:03.264+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 268, in _raise_for_status
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/models.py", line 1022, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http+docker://localhost/v1.47/containers/create
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 269, in _run_image
+    return self._run_image_with_mounts(self.mounts + [tmp_mount], add_tmp_variable=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 314, in _run_image_with_mounts
+    tty=self.tty,
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 431, in create_container
+    return self.create_container_from_config(config, name, platform)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 448, in create_container_from_config
+    return self._result(res, True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 274, in _result
+    self._raise_for_status(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 270, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 400 Client Error for http+docker://localhost/v1.47/containers/create: Bad Request ("invalid mount config for type "bind": bind source path does not exist: /tmp/airflowtmp1e84z02p")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 400, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 278, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 329, in _run_image_with_mounts
+    raise AirflowException(f'Docker container failed: {repr(result)} lines {joined_log_lines}')
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 126} lines ./scripts/feast_helper.sh: /opt/venv/bin/feast: /opt/venv/bin/python: bad interpreter: No such file or directory
+[2024-09-23T10:09:03.270+0000] {taskinstance.py:1412} INFO - Marking task as FAILED. dag_id=materlize_offline_to_online, task_id=materialize_task, execution_date=20240923T100901, start_date=20240923T100902, end_date=20240923T100903
+[2024-09-23T10:09:03.284+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 132 for task materialize_task (Docker container failed: {'StatusCode': 126} lines ./scripts/feast_helper.sh: /opt/venv/bin/feast: /opt/venv/bin/python: bad interpreter: No such file or directory; 3860)
+[2024-09-23T10:09:03.302+0000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-09-23T10:09:03.361+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

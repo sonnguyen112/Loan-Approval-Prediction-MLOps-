@@ -1,0 +1,129 @@
+[2024-10-16T07:10:06.738+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: stream_to_stores.stream_to_offline_task manual__2024-10-16T07:10:05.647598+00:00 [queued]>
+[2024-10-16T07:10:06.854+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: stream_to_stores.stream_to_offline_task manual__2024-10-16T07:10:05.647598+00:00 [queued]>
+[2024-10-16T07:10:06.854+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2024-10-16T07:10:06.854+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2024-10-16T07:10:06.854+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2024-10-16T07:10:06.869+0000] {taskinstance.py:1389} INFO - Executing <Task(DockerOperator): stream_to_offline_task> on 2024-10-16 07:10:05.647598+00:00
+[2024-10-16T07:10:06.876+0000] {standard_task_runner.py:52} INFO - Started process 720 to run task
+[2024-10-16T07:10:06.879+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stream_to_stores', 'stream_to_offline_task', 'manual__2024-10-16T07:10:05.647598+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/data_pipeline/stream_to_stores.py', '--cfg-path', '/tmp/tmpw_von_xz', '--error-file', '/tmp/tmpmc52kngv']
+[2024-10-16T07:10:06.881+0000] {standard_task_runner.py:80} INFO - Job 15: Subtask stream_to_offline_task
+[2024-10-16T07:10:06.938+0000] {task_command.py:371} INFO - Running <TaskInstance: stream_to_stores.stream_to_offline_task manual__2024-10-16T07:10:05.647598+00:00 [running]> on host bc2dbf4723f9
+[2024-10-16T07:10:07.019+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=mlopsvn
+AIRFLOW_CTX_DAG_ID=stream_to_stores
+AIRFLOW_CTX_TASK_ID=stream_to_offline_task
+AIRFLOW_CTX_EXECUTION_DATE=2024-10-16T07:10:05.647598+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-10-16T07:10:05.647598+00:00
+[2024-10-16T07:10:07.037+0000] {docker.py:262} INFO - Starting docker container from image mlopsvn/mlops_crash_course/data_pipeline:latest
+[2024-10-16T07:10:07.041+0000] {docker.py:273} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2024-10-16T07:10:10.731+0000] {docker.py:324} INFO - WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/opt/venv/lib/python3.9/site-packages/pyspark/jars/spark-unsafe_2.12-3.0.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[2024-10-16T07:10:10.929+0000] {docker.py:324} INFO - Ivy Default Cache set to: /root/.ivy2/cache
+The jars for the packages stored in: /root/.ivy2/jars
+[2024-10-16T07:10:10.968+0000] {docker.py:324} INFO - :: loading settings :: url = jar:file:/opt/venv/lib/python3.9/site-packages/pyspark/jars/ivy-2.4.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2024-10-16T07:10:11.124+0000] {docker.py:324} INFO - org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+[2024-10-16T07:10:11.127+0000] {docker.py:324} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-4753db47-19b2-4d4e-86a6-644e86859486;1.0
+	confs: [default]
+[2024-10-16T07:10:17.561+0000] {docker.py:324} INFO - found org.apache.spark#spark-sql-kafka-0-10_2.12;3.0.0 in central
+[2024-10-16T07:10:18.997+0000] {docker.py:324} INFO - found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.0.0 in central
+[2024-10-16T07:10:20.211+0000] {docker.py:324} INFO - found org.apache.kafka#kafka-clients;2.4.1 in central
+[2024-10-16T07:10:21.445+0000] {docker.py:324} INFO - found com.github.luben#zstd-jni;1.4.4-3 in central
+[2024-10-16T07:10:22.665+0000] {docker.py:324} INFO - found org.lz4#lz4-java;1.7.1 in central
+[2024-10-16T07:10:23.908+0000] {docker.py:324} INFO - found org.xerial.snappy#snappy-java;1.1.7.5 in central
+[2024-10-16T07:10:27.485+0000] {docker.py:324} INFO - found org.slf4j#slf4j-api;1.7.30 in central
+[2024-10-16T07:10:29.942+0000] {docker.py:324} INFO - found org.spark-project.spark#unused;1.0.0 in central
+[2024-10-16T07:10:34.045+0000] {docker.py:324} INFO - found org.apache.commons#commons-pool2;2.6.2 in central
+[2024-10-16T07:10:34.059+0000] {docker.py:324} INFO - downloading https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.0.0/spark-sql-kafka-0-10_2.12-3.0.0.jar ...
+[2024-10-16T07:10:34.518+0000] {docker.py:324} INFO - [SUCCESSFUL ] org.apache.spark#spark-sql-kafka-0-10_2.12;3.0.0!spark-sql-kafka-0-10_2.12.jar (460ms)
+[2024-10-16T07:10:34.520+0000] {docker.py:324} INFO - downloading https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.0.0/spark-token-provider-kafka-0-10_2.12-3.0.0.jar ...
+[2024-10-16T07:10:34.730+0000] {docker.py:324} INFO - [SUCCESSFUL ] org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.0.0!spark-token-provider-kafka-0-10_2.12.jar (210ms)
+[2024-10-16T07:10:34.731+0000] {docker.py:324} INFO - downloading https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/2.4.1/kafka-clients-2.4.1.jar ...
+[2024-10-16T07:10:35.939+0000] {docker.py:324} INFO - [SUCCESSFUL ] org.apache.kafka#kafka-clients;2.4.1!kafka-clients.jar (1208ms)
+[2024-10-16T07:10:35.941+0000] {docker.py:324} INFO - downloading https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.6.2/commons-pool2-2.6.2.jar ...
+[2024-10-16T07:10:36.164+0000] {docker.py:324} INFO - [SUCCESSFUL ] org.apache.commons#commons-pool2;2.6.2!commons-pool2.jar (223ms)
+[2024-10-16T07:10:36.166+0000] {docker.py:324} INFO - downloading https://repo1.maven.org/maven2/org/spark-project/spark/unused/1.0.0/unused-1.0.0.jar ...
+[2024-10-16T07:10:36.362+0000] {docker.py:324} INFO - [SUCCESSFUL ] org.spark-project.spark#unused;1.0.0!unused.jar (197ms)
+[2024-10-16T07:10:36.363+0000] {docker.py:324} INFO - downloading https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.4.4-3/zstd-jni-1.4.4-3.jar ...
+[2024-10-16T07:10:37.886+0000] {docker.py:324} INFO - [SUCCESSFUL ] com.github.luben#zstd-jni;1.4.4-3!zstd-jni.jar (1522ms)
+[2024-10-16T07:10:37.887+0000] {docker.py:324} INFO - downloading https://repo1.maven.org/maven2/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar ...
+[2024-10-16T07:10:38.402+0000] {docker.py:324} INFO - [SUCCESSFUL ] org.lz4#lz4-java;1.7.1!lz4-java.jar (515ms)
+[2024-10-16T07:10:38.403+0000] {docker.py:324} INFO - downloading https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.1.7.5/snappy-java-1.1.7.5.jar ...
+[2024-10-16T07:10:39.525+0000] {docker.py:324} INFO - [SUCCESSFUL ] org.xerial.snappy#snappy-java;1.1.7.5!snappy-java.jar(bundle) (1121ms)
+[2024-10-16T07:10:39.526+0000] {docker.py:324} INFO - downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar ...
+[2024-10-16T07:10:39.735+0000] {docker.py:324} INFO - [SUCCESSFUL ] org.slf4j#slf4j-api;1.7.30!slf4j-api.jar (209ms)
+[2024-10-16T07:10:39.735+0000] {docker.py:324} INFO - :: resolution report :: resolve 22932ms :: artifacts dl 5677ms
+[2024-10-16T07:10:39.736+0000] {docker.py:324} INFO - :: modules in use:
+[2024-10-16T07:10:39.736+0000] {docker.py:324} INFO - com.github.luben#zstd-jni;1.4.4-3 from central in [default]
+	org.apache.commons#commons-pool2;2.6.2 from central in [default]
+	org.apache.kafka#kafka-clients;2.4.1 from central in [default]
+	org.apache.spark#spark-sql-kafka-0-10_2.12;3.0.0 from central in [default]
+[2024-10-16T07:10:39.736+0000] {docker.py:324} INFO - org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.0.0 from central in [default]
+	org.lz4#lz4-java;1.7.1 from central in [default]
+[2024-10-16T07:10:39.736+0000] {docker.py:324} INFO - org.slf4j#slf4j-api;1.7.30 from central in [default]
+[2024-10-16T07:10:39.737+0000] {docker.py:324} INFO - org.spark-project.spark#unused;1.0.0 from central in [default]
+[2024-10-16T07:10:39.737+0000] {docker.py:324} INFO - org.xerial.snappy#snappy-java;1.1.7.5 from central in [default]
+[2024-10-16T07:10:39.737+0000] {docker.py:324} INFO - ---------------------------------------------------------------------
+[2024-10-16T07:10:39.737+0000] {docker.py:324} INFO - |                  |            modules            ||   artifacts   |
+[2024-10-16T07:10:39.737+0000] {docker.py:324} INFO - |       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+[2024-10-16T07:10:39.737+0000] {docker.py:324} INFO - |      default     |   9   |   9   |   9   |   0   ||   9   |   9   |
+	---------------------------------------------------------------------
+[2024-10-16T07:10:39.740+0000] {docker.py:324} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-4753db47-19b2-4d4e-86a6-644e86859486
+	confs: [default]
+[2024-10-16T07:10:39.757+0000] {docker.py:324} INFO - 9 artifacts copied, 0 already retrieved (10393kB/17ms)
+[2024-10-16T07:10:39.941+0000] {docker.py:324} INFO - 24/10/16 07:10:39 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2024-10-16T07:10:40.336+0000] {docker.py:324} INFO - Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+[2024-10-16T07:10:40.336+0000] {docker.py:324} INFO - Setting default log level to "WARN".
+[2024-10-16T07:10:40.336+0000] {docker.py:324} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2024-10-16T07:10:41.823+0000] {docker.py:324} INFO - /opt/venv/lib/python3.9/site-packages/pyspark/sql/context.py:75: DeprecationWarning: Deprecated in 3.0.0. Use SparkSession.builder.getOrCreate() instead.
+  warnings.warn(
+[2024-10-16T07:10:42.574+0000] {docker.py:324} INFO - /opt/venv/lib/python3.9/site-packages/feast/repo_config.py:207: RuntimeWarning: `entity_key_serialization_version` is either not specified in the feature_store.yaml, or is specified to a value <= 1.This serialization version may cause errors when trying to write fields with the `Long` data type into the online store. Specifying `entity_key_serialization_version` to 2 is recommended for new projects. 
+  warnings.warn(
+[2024-10-16T07:10:42.580+0000] {docker.py:324} INFO - /opt/venv/lib/python3.9/site-packages/feast/stream_feature_view.py:93: RuntimeWarning: Stream feature views are experimental features in alpha development. Some functionality may still be unstable so functionality can change in the future.
+  warnings.warn(
+[2024-10-16T07:10:45.348+0000] {docker.py:324} INFO - 24/10/16 07:10:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+[2024-10-16T07:10:45.349+0000] {docker.py:324} INFO - 24/10/16 07:10:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:45.447+0000] {docker.py:324} INFO - 24/10/16 07:10:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:45.549+0000] {docker.py:324} INFO - 24/10/16 07:10:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+[2024-10-16T07:10:45.550+0000] {docker.py:324} INFO - 24/10/16 07:10:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:45.801+0000] {docker.py:324} INFO - 24/10/16 07:10:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:46.254+0000] {docker.py:324} INFO - 24/10/16 07:10:46 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:46 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:47.259+0000] {docker.py:324} INFO - 24/10/16 07:10:47 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:47 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:48.367+0000] {docker.py:324} INFO - 24/10/16 07:10:48 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:48 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:49.423+0000] {docker.py:324} INFO - 24/10/16 07:10:49 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+[2024-10-16T07:10:49.425+0000] {docker.py:324} INFO - 24/10/16 07:10:49 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:50.430+0000] {docker.py:324} INFO - 24/10/16 07:10:50 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:50 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:51.286+0000] {docker.py:324} INFO - 24/10/16 07:10:51 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:51 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:52.140+0000] {docker.py:324} INFO - 24/10/16 07:10:52 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:52 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:53.148+0000] {docker.py:324} INFO - 24/10/16 07:10:53 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:53 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:54.355+0000] {docker.py:324} INFO - 24/10/16 07:10:54 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:54 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:55.463+0000] {docker.py:324} INFO - 24/10/16 07:10:55 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:55 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:56.318+0000] {docker.py:324} INFO - 24/10/16 07:10:56 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:56 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:57.527+0000] {docker.py:324} INFO - 24/10/16 07:10:57 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:57 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:58.735+0000] {docker.py:324} INFO - 24/10/16 07:10:58 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:58 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:59.641+0000] {docker.py:324} INFO - 24/10/16 07:10:59 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Connection to node -1 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+24/10/16 07:10:59 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0-1, groupId=spark-kafka-source-fd5c567f-da1e-4117-aa54-56108b69360e--2090736517-driver-0] Bootstrap broker localhost:29092 (id: -1 rack: null) disconnected
+[2024-10-16T07:10:59.923+0000] {docker.py:324} INFO - Feast is an open source project that collects anonymized error reporting and usage statistics. To opt out or learn more see https://docs.feast.dev/reference/usage
+[2024-10-16T07:11:00.323+0000] {taskinstance.py:1412} INFO - Marking task as SUCCESS. dag_id=stream_to_stores, task_id=stream_to_offline_task, execution_date=20241016T071005, start_date=20241016T071006, end_date=20241016T071100
+[2024-10-16T07:11:00.362+0000] {local_task_job.py:156} INFO - Task exited with return code 0
+[2024-10-16T07:11:00.397+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check
